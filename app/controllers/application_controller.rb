@@ -8,5 +8,16 @@ class App < Sinatra::Base
       erb :super_hero
     end
 
+    post '/' do
+      @team = Team.new(args[:team])
+      #binding.pry
+      args[:team][:heroes].each do |hero_info|
+        #binding.pry
+        Hero.new(hero_info)
+      end
+      @heroes = Hero.all
+      erb :team
+    end
+
 
 end
