@@ -10,9 +10,7 @@ class App < Sinatra::Base
 
     post '/' do
       @team = Team.new(args[:team])
-      #binding.pry
       args[:team][:heroes].each do |hero_info|
-        #binding.pry
         Hero.new(hero_info)
       end
       @heroes = Hero.all
